@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Nimbus – A field guide to the sky</title>
+  <meta name="description" content="Learn to read clouds, build a storm in the Storm Lab, and see live weather from eight cities.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,600;9..144,800&family=DM+Sans:wght@400;500;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header class="nav">
+    <a class="brand" href="#top">Nimbus</a>
+    <nav>
+      <a href="#world">Live world</a>
+      <a href="#clouds">Cloud guide</a>
+      <a href="#lab">Storm lab</a>
+    </nav>
+  </header>
+
+  <!-- HERO: the sky colour, sun and moon follow the visitor's real time of day -->
+  <section class="hero" id="top">
+    <div class="orb" id="orb" aria-hidden="true"></div>
+    <div class="cloud c1" aria-hidden="true"></div>
+    <div class="cloud c2" aria-hidden="true"></div>
+    <div class="cloud c3" aria-hidden="true"></div>
+    <div class="hero-text">
+      <h1>Read the sky.</h1>
+      <p id="heroLine">A field guide to clouds and storms, with live weather from eight cities.</p>
+      <a class="cta" href="#clouds">Start with the clouds</a>
+    </div>
+  </section>
+
+  <!-- LIVE WORLD -->
+  <section id="world" class="wrap">
+    <div class="head">
+      <h2>Right now, around the world</h2>
+      <button id="unit" class="ghost">Show °F</button>
+    </div>
+    <p class="lead">Current conditions, fetched live when you open this page.</p>
+    <div id="board" class="board" aria-live="polite"><p class="note">Loading the sky over eight cities…</p></div>
+  </section>
+
+  <!-- CLOUD GUIDE -->
+  <section id="clouds" class="wrap tint">
+    <h2>Six clouds worth knowing</h2>
+    <p class="lead">Look up, find the height, and you can guess what the weather will do next.</p>
+    <div class="clouds-list">
+      <details style="--h:90"><summary><b>Cirrus</b><span>Above 6 km</span><i></i></summary>
+        <p>Thin, feathery streaks made of ice crystals. When they thicken and spread, a warm front is often 12–24 hours away, so rain may follow.</p></details>
+      <details style="--h:55"><summary><b>Altostratus</b><span>2–6 km</span><i></i></summary>
+        <p>A grey veil that makes the sun look like it's behind frosted glass. It often arrives before steady rain or snow.</p></details>
+      <details style="--h:22"><summary><b>Cumulus</b><span>0.5–2 km</span><i></i></summary>
+        <p>Flat-bottomed cotton puffs. Small ones mean fair weather. If they keep growing upward by midday, showers are possible.</p></details>
+      <details style="--h:18"><summary><b>Stratus</b><span>Below 2 km</span><i></i></summary>
+        <p>A flat grey blanket with no shape. It brings gloom, mist or light drizzle. Fog is essentially stratus on the ground.</p></details>
+      <details style="--h:30"><summary><b>Nimbostratus</b><span>0.5–3 km</span><i></i></summary>
+        <p>Thick, dark and featureless. This is the cloud behind long, steady rain or snow lasting hours.</p></details>
+      <details style="--h:100"><summary><b>Cumulonimbus</b><span>Base 0.5–2 km, top 12 km+</span><i></i></summary>
+        <p>The thunderstorm cloud. Strong rising air builds a tower that flattens into an anvil. Expect lightning, heavy rain, gusts and sometimes hail.</p></details>
+    </div>
+  </section>
+
+  <!-- STORM LAB -->
+  <section id="lab" class="wrap">
+    <h2>Storm lab</h2>
+    <p class="lead">Change the conditions and watch what the air does. This is a simplified model for learning, not a forecast.</p>
+    <div class="lab">
+      <div class="sliders">
+        <label>Ground temperature <output id="oT">26 °C</output><input id="sT" type="range" min="0" max="40" value="26"></label>
+        <label>Humidity <output id="oH">60 %</output><input id="sH" type="range" min="10" max="100" value="60"></label>
+        <label>Lift from fronts or hills <output id="oL">40 %</output><input id="sL" type="range" min="0" max="100" value="40"></label>
+      </div>
+      <div class="result">
+        <div class="stage"><div class="tower" id="tower"></div></div>
+        <h3 id="outcome"></h3>
+        <p id="outText"></p>
+        <p class="note" id="base"></p>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <strong>Nimbus</strong> · Live data from <a href="https://open-meteo.com">Open-Meteo</a> · Made for curious people
+  </footer>
+  <script src="script.js"></script>
+</body>
+</html>
